@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>搭建简易博客 | Lya</title>
+<meta name="description" content="我辈皆矩火，复民族荣光！">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://lya0426.github.io/favicon.ico?v=1678159249644">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://lya0426.github.io/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://lya0426.github.io">
+        <img class="avatar" src="https://lya0426.github.io/images/avatar.png?v=1678159249644" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://lya0426.github.io">
+        <h1 class="site-title">Lya</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">搭建简易博客</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2023-02-27</span>
+            
+          </div>
+          <div class="post-content" v-pre>
+            <h1 id="搭建简易博客">搭建简易博客</h1>
+<h2 id="一-搭建博客的前期准备">一、搭建博客的前期准备</h2>
+<h3 id="1-注册github账号">1、注册Github账号</h3>
+<p>打开Github官网，使用邮箱注册Github账号，注册时<strong>请谨慎设置自己的用户名</strong>，因为用户名后面会成为<strong>博客域名</strong>的一部分。<br>
+<img src="https://mmbiz.qpic.cn/mmbiz_png/WdqAMJxDC6oCQYpmrR4Gjle77hS5dmvYSlrKf2ibcTzNTJiazWgedibicldQbrnBg0ZGEAw430WicIbkfE2LMLOsvZA/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片" loading="lazy"><br>
+获得了Github账号后，点击左侧的<strong>Create a repository</strong>，创建一个仓库，用于存放博客的相关数据。<br>
+<img src="https://mmbiz.qpic.cn/mmbiz_png/WdqAMJxDC6oCQYpmrR4Gjle77hS5dmvYtyctlDY6HoVBRqg4yw5Ql8ibiaRRS15E16FzyxWqpRj3VLib9uuRniblAA/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片" loading="lazy"><br>
+在设置仓库名称时，它的格式是固定的，采用「<strong>用户名.github.io</strong>」的格式，因为这个仓库名称就是<strong>博客的域名</strong>(地址)。<br>
+如下图，我的用户名为angola95，因此仓库名为「angola95.github.io」。<br>
+设置好仓库名称后，勾选<strong>Initialize this repository with a README</strong>，最后点击底部的<strong>Create repository</strong>，就完成了仓库的创建。<br>
+<img src="https://mmbiz.qpic.cn/mmbiz_png/WdqAMJxDC6oCQYpmrR4Gjle77hS5dmvYlAfsnHSOUVSRxQHe2LX00YMLHdI8XKno0iafmia2eOmibDkHUt7FebYBA/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片" loading="lazy"><br>
+创建好仓库后，点击右上方的账号头像，选择<strong>Settings</strong>。<br>
+<img src="https://mmbiz.qpic.cn/mmbiz_png/WdqAMJxDC6oCQYpmrR4Gjle77hS5dmvYpSibBtaIGnKnsnDzqBUFLg2Hib0r7s6Kh7JYn6f7RK4QkRLxfFjcwgSA/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片" loading="lazy"><br>
+在设置菜单中，按照<strong>Developer settings--Personal access tokens</strong>的路径进入，点击右上方的<strong>Generate new token</strong>。<br>
+<img src="https://mmbiz.qpic.cn/mmbiz_gif/WdqAMJxDC6oCQYpmrR4Gjle77hS5dmvYa7daniaS6TgDVg3Nndo9Ig5Pwq5vbOgj5bTMvpZKKy4Vq1ICO0YK1uw/640?wx_fmt=gif&amp;wxfrom=5&amp;wx_lazy=1" alt="图片" loading="lazy"><br>
+在New token设置页面，Note输入对Token的描述或备注，勾选下方的<strong>repo</strong>。<br>
+<img src="https://mmbiz.qpic.cn/mmbiz_png/WdqAMJxDC6oCQYpmrR4Gjle77hS5dmvYEwPmiaed7y5GM3KH7iaUIlMAaTFPtkkkKHnkib1EL5t1buMgckev5RRNg/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片" loading="lazy"><br>
+最后将页面拉至底部，点击<strong>Generate token</strong>，就会生成一串由数字和字母组成的字符，这就是刚刚生成的<strong>Token</strong>。<br>
+有的小伙伴可能会问，这个生成的Token有什么用？请接着往下看，你可能就明白了。<br>
+<img src="https://mmbiz.qpic.cn/mmbiz_png/WdqAMJxDC6oCQYpmrR4Gjle77hS5dmvY50MjnmCzicOpJPdVMFUCQg7ygaPdgEKGUCFBVRBbKo9uib3717D8tv3g/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片" loading="lazy"></p>
+<h3 id="2-安装git">2、安装Git</h3>
+<p>Git是一个<strong>分布式版本控制软件</strong>，方便多个开发者同时为一个项目贡献代码，彼此间互不影响，大大提高了团队合作的效率。<br>
+Git的数据库分为<strong>远端数据库和本地数据库</strong>，我们在Github上创建的仓库，可以看成是博客的远端数据库，而本地数据库就是我们使用的电脑。<br>
+使用Git，能将我们在本地电脑写的博客内容，自动地推送到远端的Github上，而连接本地和远端数据库的桥梁，就是前面生成的<strong>Token</strong>。<br>
+<img src="https://mmbiz.qpic.cn/mmbiz_png/WdqAMJxDC6oCQYpmrR4Gjle77hS5dmvYic0tYGlIUYkoJCXVEdQicI56cNkQYzyGvXc8dBexFd12pgtuNHYgiaDSA/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片" loading="lazy"><br>
+Git支持<strong>Win、macOS和Linux</strong>三大平台，下载之后，它的安装方法与普通软件一样，更换软件安装位置之后，一直点击下一步，直至开始安装。</p>
+<h3 id="3-安装博客写作客户端">3、安装博客写作客户端</h3>
+<p>Gridea是一个静态的博客写作客户端，它提供了免费和收费的<strong>博客主题</strong>，通过应用不同的主题，可以让原本简陋的博客更有<strong>设计感</strong>。<br>
+<img src="https://mmbiz.qpic.cn/mmbiz_png/WdqAMJxDC6oCQYpmrR4Gjle77hS5dmvY7kqZZsiciaBI8hJiaKiac4lqVYTicKaicsj6DmElGEjzuy3uYWuYpqXC2D6w/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片" loading="lazy"><br>
+安装了Gridea后，需要先进行一定的配置。<br>
+在配置页面中，Platform选择<strong>Github Pages</strong>，分支填写<strong>master</strong>，其他选项则根据个人信息进行填写。<br>
+<img src="https://mmbiz.qpic.cn/mmbiz_png/WdqAMJxDC6oCQYpmrR4Gjle77hS5dmvY8Ld7cP5YcibyPibOUics9jGWxs9Vq0lJdTkN1jt7XgXKbGfUad6C1PMicA/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片" loading="lazy"><br>
+填写好信息，先点击<strong>保存</strong>，接着点击<strong>检测远程连接</strong>，查看是否连接成功。<br>
+若提示远程连接失败，解决方法可参考Gridea官方给出的文档：<br>
+<em>https://dwz.cn/K9DdtABB</em></p>
+<h2 id="二-开始写第一篇博客">二、开始写第一篇博客</h2>
+<p>完成上面的工作后，就算完成了博客的搭建，接下来你就可以开始写自己的第一篇博客了。</p>
+<h3 id="1-markdown编辑器">1、Markdown编辑器</h3>
+<p>Typora，是一个<strong>免费的Markdown客户端软件</strong>，支持Win、macOS和Linux三个平台。<br>
+Typora虽然没有马克飞象并排的实时预览窗口，但它也是<strong>所见即所得</strong>的，输入Markdown的标记符号后，就能马上看到最终的效果。<br>
+<img src="https://mmbiz.qpic.cn/mmbiz_gif/WdqAMJxDC6oCQYpmrR4Gjle77hS5dmvYwVqnAibgd15bnbzxKiaa40fsvmybVvAcIs062y1Sq8tq3iaB3ANCVzIkw/640?wx_fmt=gif&amp;wxfrom=5&amp;wx_lazy=1" alt="图片" loading="lazy"><br>
+使用Markdown写文章，有时需要将文章发送给他人查看，若对方没有用过Markdown，你直接发送一份Markdown文件过去，会让别人一脸懵逼，也不便于多人间的协作。<br>
+而Typora也为我们考虑到了这一点，在导出中，有<strong>多种文件格式</strong>可以选择，如最为常见的<strong>PDF、Word和图片</strong>。<br>
+<img src="https://mmbiz.qpic.cn/mmbiz_png/WdqAMJxDC6oCQYpmrR4Gjle77hS5dmvY4uj2iapesjA3fxthw7YfvSInrV1iaYvuiclPs50gs9DcCr5p7RdTguYuw/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片" loading="lazy"></p>
+<h3 id="2-markdown图床">2、Markdown图床</h3>
+<p>在Markdown中，使用的图片都是通过链接的形式添加到文章中的，下图中的图片就是使用https开头的链接引用到Markdown中的。<br>
+<img src="https://mmbiz.qpic.cn/mmbiz_png/WdqAMJxDC6oCQYpmrR4Gjle77hS5dmvYJUpyrtq4zaDf25srwmEQTic4Zg4sJpHGZC1pAiaPhNu16wOrKactoOOg/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片" loading="lazy"><br>
+图片通过链接进行引用，这就需要我们先将图片上传到<strong>服务器</strong>中，在网上用于存放图片的服务器，叫做「<strong>图床</strong>」。<br>
+若你觉得图床比较陌生，也可以将图床理解为<strong>网络相册</strong>，如QQ空间相册、微博相册等，我们发布在QQ或微博的照片，其实就是存放在了腾讯和新浪的服务器上。<br>
+网络上的图床有免费和收费两种，为最低成本地搭建一个博客，我选择使用免费的图床，而这个图床刚好就是文章最开始提到的<strong>Github</strong>。</p>
+<h3 id="3-图片上传工具picgo">3、图片上传工具PicGo</h3>
+<p>为方便将电脑本地的图片上传到Github，我们需要安装一个<strong>图片上传工具</strong>——<strong>PicGo</strong>。<br>
+使用PicGo上传到Github的图片，它会返回图片对应的链接，接着你将链接粘贴到使用Markdown写的博客中，图片就可以正常显示了。<br>
+PicGo是由一位个人开发者@PiEgg 开发的<strong>免费</strong>图片上传工具，支持Win、macOS和Linux三大平台。<br>
+<img src="https://mmbiz.qpic.cn/mmbiz_png/WdqAMJxDC6oCQYpmrR4Gjle77hS5dmvYiaxNmqaSt84IX1WwC7g7oqE6oNxLBVPiarqx1pj9Tfic6Occdic5MUJDJQ/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片" loading="lazy"><br>
+安装了PicGo后，需要先对软件进行一定的设置：<br>
+点击<strong>图片上传</strong>右下角的箭头，选择<strong>Github图床</strong>。<br>
+<img src="https://mmbiz.qpic.cn/mmbiz_png/WdqAMJxDC6oCQYpmrR4Gjle77hS5dmvYYyCbzsjx7Tc6y8eVYcvHpaUZm3tFvmiaA86CLlNn1nByuKB3lymYWsQ/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片" loading="lazy"><br>
+点击左侧边栏的图床设置，选择Github图床，进入Github图床的设置界面。<br>
+在Github设置中，需要填写的信息有<strong>仓库名、分支名和Token</strong>等，这些信息在提示我们得去Github<strong>新建一个用作图床的仓库</strong>。<br>
+<img src="https://mmbiz.qpic.cn/mmbiz_png/WdqAMJxDC6oCQYpmrR4Gjle77hS5dmvYuXMciaZslxLj4oKMicx3kksjRlSEdNJibb1U1rvxt5pxulpm4bmYIx6KA/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片" loading="lazy"><br>
+下图是我新建的用作图床的仓库，创建方法与前面介绍的创建仓库操作基本一致，这里不再赘述。<br>
+<img src="https://mmbiz.qpic.cn/mmbiz_png/WdqAMJxDC6oCQYpmrR4Gjle77hS5dmvYJdbibO2veHv9WicLic7OwLmsHaqdmkKXbyn1TfmZxRLITacAIelSibXg9w/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片" loading="lazy"><br>
+创建好图床的仓库后，我们还需要创建一个<strong>新的Token</strong>，用于<strong>连接PicGo与图床仓库</strong>，创建Token的方法，前面也有介绍过。<br>
+完成新仓库和Token的创建后，我们回到PicGo的配置界面，按照下图填入相关信息。<br>
+<img src="https://mmbiz.qpic.cn/mmbiz_png/WdqAMJxDC6oCQYpmrR4Gjle77hS5dmvYibxZaBgbl0qKBW8OLr8ZDuv9hIk03bcfvUoLKnmA89vE3J7rXsI7wWw/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片" loading="lazy"><br>
+*<em>对上图的说明：</em><br>
+仓库名：格式为 Github用户名/仓库名；<br>
+分支名：设置为 master；<br>
+设定自定义域名：格式为<em>https://raw.githubusercontent.com/Github用户名/仓库名/master</em>，前面的部分都是固定的，后面的Github用户名和仓库名根据个人情况进行替换。<br>
+完成以上设置后，点击下方的确定按钮，若配置的信息正确，在Win10系统右下角会弹出设置成功的通知。<br>
+<img src="https://mmbiz.qpic.cn/mmbiz_png/WdqAMJxDC6oCQYpmrR4Gjle77hS5dmvYNubhtue6Jg5lSuchzLfN1oibAcagoogHfB2gCzPYDGBYHah0uBkhffg/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片" loading="lazy"><br>
+返回到PicGo的上传区，将你想上传到的图片拖拽到上传区，待图片完成上传，软件会在桌面右下角弹出上传成功的通知。<br>
+通知附带了图片上传到Github的链接，点击通知面板，就会将链接保存到复制到系统的剪贴板中。<br>
+<img src="https://mmbiz.qpic.cn/mmbiz_gif/WdqAMJxDC6oCQYpmrR4Gjle77hS5dmvYfoGEALalb7aIx8Ek8vxWBTgM8sf8KRntEX9XuvqLjWyeg0ich9LdKgg/640?wx_fmt=gif&amp;wxfrom=5&amp;wx_lazy=1" alt="图片" loading="lazy"><br>
+此时再回到Typora，将剪贴板中的图片链接粘贴到文章中，就完成了博客图片的添加。<br>
+<img src="https://mmbiz.qpic.cn/mmbiz_gif/WdqAMJxDC6oCQYpmrR4Gjle77hS5dmvYUURmqbkJPV9SSgJMECW202b24QGMicKpK3phm0g1jJWDkTpcvhyCb1g/640?wx_fmt=gif&amp;wxfrom=5&amp;wx_lazy=1" alt="图片" loading="lazy"></p>
+<p><strong>PicGo下载地址：</strong><br>
+<em>https://dwz.cn/sNQWdAfG</em></p>
+<h2 id="三-发布你的第一篇博客">三、发布你的第一篇博客</h2>
+<p>至此，完成了前面较为繁琐的操作后，你就可以正式发布自己的第一篇博客了。<br>
+在博客客户端Gridea中，点击左下角的<strong>预览</strong>按钮，可以预览保存在本地的博客，预览后未发现问题的话，就可以点击下方的<strong>同步</strong>按钮，将保存到本地的博客推送到Github上。<br>
+<img src="https://mmbiz.qpic.cn/mmbiz_png/WdqAMJxDC6oCQYpmrR4Gjle77hS5dmvYtgSP0J4vUKeTlDge1hxNUZ51OIxISJUNSMxDjianQ5cyCic2s9ER4cUg/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片" loading="lazy"><br>
+完成同步后，在浏览器中输入最开始创建的仓库的名称，由于最开始我将仓库名称设置为angola95.github.io，因此在浏览器输入这个地址，就能打开我的个人博客了。<br>
+<img src="https://mmbiz.qpic.cn/mmbiz_png/WdqAMJxDC6oCQYpmrR4Gjle77hS5dmvYtX2xRz0hWLS0WbIjC1fdvxgzhtdZ0FDgq074ibq2EZkFbFo5yFTzMbw/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片" loading="lazy"></p>
+<h2 id="四-写在最后">四、写在最后</h2>
+<p>使用本文介绍的方法搭建博客，有两个<strong>好处</strong>，一是不需要花时间学习搭建博客所需的技术，对新手比较友好；二是搭建的博客完全免费，不需要担心服务器到期访问不了。<br>
+当然，这个方法也存在一些<strong>不足</strong>：由于Github是个国外的网站，若博客中添加的图片过大，加载的时间会延长。<br>
+对比了这个方法存在的利弊，我最终还是选择了它。<br>
+除了本文介绍的搭建博客的方法，网上还有很多其他方法，感兴趣的小伙伴可以自行搜索。<br>
+以上，就是本次想和你分享的零基础零成本搭建博客的方法。<br>
+希望对你有帮助，我们下次见。</p>
+
+          </div>
+        </div>
+
+        
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan">我辈皆矩火，复民族荣光！</div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/lya0426" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://lya0426.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
